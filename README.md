@@ -1,1 +1,2 @@
-# Detect-it-early---preliminary-analysis-and-detection
+# Enterprise grade skin cancer detection and treatment solution
+
