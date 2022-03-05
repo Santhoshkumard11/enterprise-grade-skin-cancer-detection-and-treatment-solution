@@ -1,3 +1,4 @@
+import json
 import os
 import logging
 import base64
@@ -29,7 +30,8 @@ def process_image(raw_image_bytes: str, user_id: str, user_name: str):
         image_in_bytes = get_image_from_binary_date(raw_image_bytes)
         logging.info("Image converted to bytes")
         
-        image_object = Image.open(io.BytesIO(image_in_bytes))
+        # converting the image to three channel
+        image_object = Image.open(io.BytesIO(image_in_bytes)).convert('RGB')
         
         prediction = detect_type("", image_object=image_object, is_object=True)
         
@@ -49,7 +51,7 @@ def process_image(raw_image_bytes: str, user_id: str, user_name: str):
         logging.exception(f"Error while processing the image {e}")
         return False, ""
 
-    return True, prediction
+    return True, json.dumps({"detected_type":prediction})
 
     
     

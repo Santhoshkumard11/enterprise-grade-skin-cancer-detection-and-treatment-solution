@@ -17,7 +17,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                                      You can pass image_name with test.png as params to get a sample detection of the model.""", status_code=200)
         else:
 
-            prediction_result = detect_type(test_image_path)
+            prediction_result = detect_type(test_image_path, None, False)
             
             return func.HttpResponse(
                 f"The prediction has been made - it's {prediction_result}",
