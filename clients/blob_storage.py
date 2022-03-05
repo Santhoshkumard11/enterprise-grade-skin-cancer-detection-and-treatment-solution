@@ -8,7 +8,16 @@ class BlobStorageConnectionError(Exception):
 
 class CustomBlobStorageClient:
 
-    def __init__(self, container_name: str, blob_name: str) -> None:
+    def __init__(self, container_name: str, blob_name: str):
+        """connect with the blob storage account
+
+        Args:
+            container_name (str): name of the container
+            blob_name (str): name of the blob to be created
+
+        Raises:
+            BlobStorageConnectionError: If it's not able to connect with the account
+        """
 
         try:
             self.blob_client_object = BlobServiceClient.from_connection_string(
@@ -31,6 +40,11 @@ class CustomBlobStorageClient:
 
 
     def upload_image(self, bytes_image: str):
+        """ Upload the image to the initalized blob storage account
+
+        Args:
+            bytes_image (str): image in bytes
+        """
 
         logging.info("Starting to upload image to blob storage")
 
