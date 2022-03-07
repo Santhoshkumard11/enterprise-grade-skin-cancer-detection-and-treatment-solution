@@ -1,0 +1,11 @@
+things to send via adaptive card
+
+doctor_id
+doctor_email
+doctor_profile_url
+patient_id
+patient_name
+prediction_choice
+sample_image_url
+
+slot_id - used to update the slot once the doctor accepts it

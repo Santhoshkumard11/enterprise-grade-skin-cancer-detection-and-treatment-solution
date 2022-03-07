@@ -1,0 +1,151 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "medium",
+            "weight": "bolder",
+            "text": "Report - Initial sample image analysis",
+            "wrap": true,
+            "style": "heading"
+        },
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "style": "Person",
+                            "url": "https://randomuser.me/api/portraits/women/47.jpg",
+                            "size": "Small"
+                        }
+                    ],
+                    "width": "auto"
+                },
+                {
+                    "type": "Column",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "Bolder",
+                            "text": "Sandy",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "spacing": "None",
+                            "text": "Request raised at 06/03/2022 06:53 PM",
+                            "isSubtle": true,
+                            "wrap": true
+                        }
+                    ],
+                    "width": "stretch"
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": "PFB the details of the patient and a sample image with the prediction from the model.",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "wrap": true,
+            "spacing": "None",
+            "separator": true,
+            "text": "Patient Name - Adele\n\nPrediction from model - squamous cell carcinoma\n"
+        },
+        {
+            "type": "Image",
+            "altText": "Patient's Sample Image",
+            "width": "224px",
+            "height": "224px",
+            "url": "https://azureisonskincancer981e.blob.core.windows.net/azureison-skin-cancer-center-sample-image-storage/1_Adele_squamous cell carcinoma.png",
+            "spacing": "None"
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "choices": [
+                {
+                    "title": "Yes",
+                    "value": "Yes"
+                },
+                {
+                    "title": "basal",
+                    "value": "basal"
+                },
+                {
+                    "title": "Dermatofibrosarcoma protuberans",
+                    "value": "Dermatofibrosarcoma protuberans"
+                },
+                {
+                    "title": "squamous cell carcinoma",
+                    "value": "squamous cell carcinoma"
+                },
+                {
+                    "title": "melanoma",
+                    "value": "melanoma"
+                },
+                {
+                    "title": "Merkel",
+                    "value": "Merkel"
+                },
+                {
+                    "title": "cutaneous",
+                    "value": "cutaneous"
+                },
+                {
+                    "title": "Negative",
+                    "value": "Negative"
+                }
+            ],
+            "placeholder": "Click to select your choice",
+            "isRequired": true,
+            "label": "Is the classification from the model correct? else choose the right one.",
+            "id": "prediction_choice",
+            "errorMessage": "Please select a choice"
+        },
+        {
+            "type": "Input.Date",
+            "label": "Slot Date & Time",
+            "spacing": "Small",
+            "id": "slot_date",
+            "$when": "prediction_choice != \"Negative\""
+        },
+        {
+            "type": "Input.Time",
+            "spacing": "None",
+            "id": "slot_time",
+            "$when": "prediction_choice != \"Negative\""
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Http",
+                    "title": "Submit",
+                    "method": "POST",
+                    "url": "https://prod-09.northcentralus.logic.azure.com:443/workflows/75092a5a095540989dc98ac7fb4f467a/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Tq0gVs543DiVk1Qh6BjiSMg3GHwJynSg90kiKGG6Pyo",
+                    "body": "{\n\"patient_name\":\"Adele\",\n\"prediction_choice\":{{prediction_choice}},\n\"slot_date\":{{slot_date}},\n\"slot_time\":{{slot_time}},\n\"patient_id\":\"1\"\n\"doctor_id\":\"4\",\n\"doctor_name\":\"Sandy\"\n\"slot_id\":\"4\"\n}",
+                    "headers": [
+                        {
+                            "name": "Authorization",
+                            "value": ""
+                        },
+                        {
+                            "name": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "id": "submit",
+                    "ignoreInputValidation": true,
+                    "style": "positive"
+                }
+            ]
+        }
+    ]
+}

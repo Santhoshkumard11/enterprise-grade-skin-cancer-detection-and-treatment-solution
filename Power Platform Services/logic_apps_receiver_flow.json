@@ -1,0 +1,219 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Compose": {
+                "inputs": {
+                    "body": [
+                        {
+                            "size": "Medium",
+                            "text": "Thank You",
+                            "type": "TextBlock",
+                            "weight": "Bolder"
+                        },
+                        {
+                            "text": "Your response has been successfully recorded!",
+                            "type": "TextBlock"
+                        }
+                    ],
+                    "type": "AdaptiveCard",
+                    "version": "1.0"
+                },
+                "runAfter": {
+                    "Update_item_2": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Compose"
+            },
+            "Condition": {
+                "actions": {
+                    "Create_a_work_item": {
+                        "inputs": {
+                            "body": {
+                                "description": "<p>The prediction was wrong so the image has to be added to the retrain phase.<br>\n<br>\nDoctor ID -@{triggerBody()?['doctor_id']}<br>\nImage URL - @{body('Update_item')?['ImageURL']}<br>\nAcutal Prediction by dermatologist - @{triggerBody()?['prediction_choice']}<br>\n</p>",
+                                "title": "Retrain False Positive Image retrain"
+                            },
+                            "host": {
+                                "connection": {
+                                    "name": "@parameters('$connections')['visualstudioteamservices']['connectionId']"
+                                }
+                            },
+                            "method": "patch",
+                            "path": "/@{encodeURIComponent('Azurison Skin Cancer Treatment Center')}/_apis/wit/workitems/$@{encodeURIComponent('Bug')}",
+                            "queries": {
+                                "account": "santhoshkdhana"
+                            }
+                        },
+                        "runAfter": {},
+                        "type": "ApiConnection"
+                    }
+                },
+                "expression": {
+                    "and": [
+                        {
+                            "equals": [
+                                "@body('Update_item')?['CancerType']?['Value']",
+                                "Negative"
+                            ]
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Send_an_email_(V2)": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "If"
+            },
+            "Response": {
+                "inputs": {
+                    "body": "@outputs('Compose')",
+                    "headers": {
+                        "CARD-UPDATE-IN-BODY": "true"
+                    },
+                    "statusCode": 200
+                },
+                "kind": "Http",
+                "runAfter": {
+                    "Compose": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Response"
+            },
+            "Send_an_email_(V2)": {
+                "inputs": {
+                    "body": {
+                        "Body": "<p>Hi @{body('Update_item')['Title']},<br>\nWe have booked an appointment with @{triggerBody()?['doctor_name']} on @{substring(triggerBody()?['slot_date'],0,10)} at @{triggerBody()?['slot_time']}.<br>\n<br>\nYou'll get the invite soon via mail and you can track the same in the Power Apps.<br>\n<br>\n<a href=\"https://apps.powerapps.com/play/3aa4f188-73b1-4188-b2cb-8f2ffadc9a45?tenantId=f547f2eb-18b1-47c7-9f2d-587162a7e029&amp;role=patient\">Click here to view in Power Apps.</a><br>\n<br>\nRegards,<br>\nAzureison Skin Cancer Treatment Center Team</p>",
+                        "Subject": "Appointment is booked with @{triggerBody()?['doctor_name']}",
+                        "To": "@body('Update_item')?['email']"
+                    },
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['office365']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/v2/Mail"
+                },
+                "runAfter": {
+                    "Response": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            },
+            "Update_item": {
+                "inputs": {
+                    "body": {
+                        "CancerType": {
+                            "Value": "@triggerBody()?['prediction_choice']"
+                        },
+                        "Title": "@triggerBody()?['patient_name']",
+                        "step_number": 2
+                    },
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['sharepointonline']['connectionId']"
+                        }
+                    },
+                    "method": "patch",
+                    "path": "/datasets/@{encodeURIComponent(encodeURIComponent('https://z3dr3.sharepoint.com/sites/AzureisonSkinCancerTreatmentCenter'))}/tables/@{encodeURIComponent(encodeURIComponent('76a20bd1-ccec-4a1d-9adc-a586806d0fcb'))}/items/@{encodeURIComponent(triggerBody()['patient_id'])}"
+                },
+                "runAfter": {},
+                "type": "ApiConnection"
+            },
+            "Update_item_2": {
+                "inputs": {
+                    "body": {
+                        "DateTime": "@{concat(substring(triggerBody()?['slot_date'],0,10), ' ', triggerBody()?['slot_time'])}",
+                        "DoctorAccepted": "Yes",
+                        "PatientID": "@triggerBody()?['patient_id']",
+                        "Title": "slot"
+                    },
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['sharepointonline']['connectionId']"
+                        }
+                    },
+                    "method": "patch",
+                    "path": "/datasets/@{encodeURIComponent(encodeURIComponent('https://z3dr3.sharepoint.com/sites/AzureisonSkinCancerTreatmentCenter'))}/tables/@{encodeURIComponent(encodeURIComponent('d9d3120a-af86-4b62-8a3c-3b53488935d0'))}/items/@{encodeURIComponent(triggerBody()?['slot_id'])}"
+                },
+                "runAfter": {
+                    "Update_item": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+            }
+        },
+        "triggers": {
+            "manual": {
+                "conditions": [],
+                "inputs": {
+                    "schema": {
+                        "properties": {
+                            "doctor_id": {
+                                "type": "string"
+                            },
+                            "doctor_name": {
+                                "type": "string"
+                            },
+                            "patient_id": {
+                                "type": "string"
+                            },
+                            "patient_name": {
+                                "type": "string"
+                            },
+                            "prediction_choice": {
+                                "type": "string"
+                            },
+                            "slot_date": {
+                                "type": "string"
+                            },
+                            "slot_id": {
+                                "type": "string"
+                            },
+                            "slot_time": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "kind": "Http",
+                "type": "Request"
+            }
+        }
+    },
+    "parameters": {
+        "$connections": {
+            "value": {
+                "office365": {
+                    "connectionId": "/subscriptions/c88c8d55-feaf-4088-8f02-ff45b072ad4a/resourceGroups/Azureison-Skin-Cancer-Treatment/providers/Microsoft.Web/connections/office365",
+                    "connectionName": "office365",
+                    "id": "/subscriptions/c88c8d55-feaf-4088-8f02-ff45b072ad4a/providers/Microsoft.Web/locations/northcentralus/managedApis/office365"
+                },
+                "sharepointonline": {
+                    "connectionId": "/subscriptions/c88c8d55-feaf-4088-8f02-ff45b072ad4a/resourceGroups/Azureison-Skin-Cancer-Treatment/providers/Microsoft.Web/connections/sharepointonline",
+                    "connectionName": "sharepointonline",
+                    "id": "/subscriptions/c88c8d55-feaf-4088-8f02-ff45b072ad4a/providers/Microsoft.Web/locations/northcentralus/managedApis/sharepointonline"
+                },
+                "visualstudioteamservices": {
+                    "connectionId": "/subscriptions/c88c8d55-feaf-4088-8f02-ff45b072ad4a/resourceGroups/Azureison-Skin-Cancer-Treatment/providers/Microsoft.Web/connections/visualstudioteamservices",
+                    "connectionName": "visualstudioteamservices",
+                    "id": "/subscriptions/c88c8d55-feaf-4088-8f02-ff45b072ad4a/providers/Microsoft.Web/locations/northcentralus/managedApis/visualstudioteamservices"
+                }
+            }
+        }
+    }
+}

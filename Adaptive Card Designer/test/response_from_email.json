@@ -1,0 +1,9 @@
+{
+    "patient_name": "Adele",
+    "prediction_choice": "Merkel",
+    "slot_date": "10-12-1997",
+    "slot_time": "11:23 AM",
+    "patient_id": "1",
+    "doctor_id":"1",
+    "doctor_name":""
+}
