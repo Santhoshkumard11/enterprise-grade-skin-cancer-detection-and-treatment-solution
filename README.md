@@ -39,7 +39,19 @@ screening and the result is send to a dermatologist for closure. Once this is do
 1. #### Response from Adaptive Card
     - Once the dermatologist confirms the appointment and submits the card. The details is recorded and the Patient item list and slot item list are updated with the details, finally a mail is triggered to the patient with the appointment date and time 
 ## Power Apps Images
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/Dashboard.jpg" height="580" alt="dashboard of Power Apps">
+### Dashboard - Light/Dark themes
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/dashboard.jpg" height="580" alt="dashboard of Power Apps light">
+
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/dashboard_dark.jpg" height="580" alt="dashboard of Power Apps dark">
+
+### Patient Details List - with search enabled
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/patient_details.jpg" height="580" alt="Patient details list">
+
+### Doctor Home
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/doctor_profile.jpg" height="580" alt="doctor home">
+
+### Patient Profile
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/patient_profile.jpg" height="580" alt="patient profile">
 
 ## About the ML model used
 - Model trained with images from the dataset [here](https://www.kaggle.com/nodoubttome/skin-cancer9-classesisic)
