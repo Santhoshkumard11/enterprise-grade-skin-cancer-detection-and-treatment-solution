@@ -41,7 +41,7 @@ screening and the result is send to a dermatologist for closure. Once this is do
 
 
 ### Azure Resource Group
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/resource_group.jpg" alt="dashboard of Power Apps light">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/resource_group.jpg" alt="Azure resource group">
 
 ## Power Apps Images
 ### Dashboard - Light/Dark themes
@@ -57,6 +57,9 @@ screening and the result is send to a dermatologist for closure. Once this is do
 
 ### Patient Profile
 <img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/patient_profile.jpg" alt="patient profile">
+
+## Power Apps Versions
+![Power Apps Versions](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/power-app-version-view.gif)
 
 ## About the ML model used
 - Model trained with images from the dataset [here](https://www.kaggle.com/nodoubttome/skin-cancer9-classesisic)
