@@ -1,0 +1,12 @@
+{
+    "doctor_id":"4",
+    "doctor_name": "Sandy",
+    "doctor_email": "sandy_codes_py_admin_dev_365@z3dr3.onmicrosoft.com",
+    "doctor_profile_image_url": "https://azureisonskincancer981e.blob.core.windows.net/azureison-skin-cancer-center-sample-image-storage/8_Megan%20Bowen%20_melanoma.png",
+    "patient_id": "1",
+    "patient_name": "Adele",
+    "patient_email": "AdeleV@z3dr3.onmicrosoft.com",
+    "sample_image_url": "https://azureisonskincancer981e.blob.core.windows.net/azureison-skin-cancer-center-sample-image-storage/8_Megan%20Bowen%20_melanoma.png",
+    "prediction": "cutaneous",
+    "date_time_now":"09-08-2022 12:23 PM"
+}
