@@ -42,7 +42,7 @@ screening and the result is send to a dermatologist for closure. Once this is do
 <img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/Dashboard.jpg" height="580" alt="dashboard of Power Apps">
 
 ## About the ML model used
-- Model trained with images from the dataset (here)[https://www.kaggle.com/nodoubttome/skin-cancer9-classesisic]
+- Model trained with images from the dataset [here](https://www.kaggle.com/nodoubttome/skin-cancer9-classesisic)
 - It gives out the following labels,
     - basal 
     - Dermatofibrosarcoma protuberans
@@ -57,3 +57,4 @@ screening and the result is send to a dermatologist for closure. Once this is do
 - Auto select the dermatologist based on the availability and critical care needed for the patient
 - Send an Calendar invite instead of the plain text email when the dermatologist confirm the appointment
 - Setup a retraining mechanism which trains the model with the latest images per month in Azure Machine Learning (designer)
+- Live Chat assistance through Virtual Agents
