@@ -9,12 +9,12 @@ screening and the result is send to a dermatologist for closure. Once this is do
 
 
 <a href="https://youtu.be/DFKe5eMj2_c">
-  <img src="https://img.youtube.com/vi/DFKe5eMj2_c/hqdefault.jpg" width="600" height="370" alt="video">
+  <img src="https://img.youtube.com/vi/DFKe5eMj2_c/hqdefault.jpg" alt="video">
 </a>
 
 
 ## Architecture Diagram
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/architecture_diagram.jpg" height="380" width="1300" alt="architecture diagram">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/architecture_diagram.jpg" alt="architecture diagram">
 
 ## Services Used
 - __Power Apps__ as UI
@@ -37,21 +37,26 @@ screening and the result is send to a dermatologist for closure. Once this is do
 
 ## Logic Apps Flow
 1. #### Response from Adaptive Card
-    - Once the dermatologist confirms the appointment and submits the card. The details is recorded and the Patient item list and slot item list are updated with the details, finally a mail is triggered to the patient with the appointment date and time 
+    - Once the dermatologist confirms the appointment and submits the card. The details is recorded and the Patient item list and slot item list are updated with the details, finally a mail is triggered to the patient with the appointment date and time
+
+
+### Azure Resource Group
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/resource_group.jpg" alt="dashboard of Power Apps light">
+
 ## Power Apps Images
 ### Dashboard - Light/Dark themes
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/dashboard.jpg" height="580" alt="dashboard of Power Apps light">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/dashboard_light.jpg" alt="dashboard of Power Apps light">
 
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/dashboard_dark.jpg" height="580" alt="dashboard of Power Apps dark">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/dashboard_dark.jpg" alt="dashboard of Power Apps dark">
 
 ### Patient Details List - with search enabled
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/patient_details.jpg" height="580" alt="Patient details list">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/patient_details.jpg" alt="Patient details list">
 
 ### Doctor Home
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/doctor_profile.jpg" height="580" alt="doctor home">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/doctor_profile.jpg" alt="doctor home">
 
 ### Patient Profile
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/patient_profile.jpg" height="580" alt="patient profile">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/patient_profile.jpg" alt="patient profile">
 
 ## About the ML model used
 - Model trained with images from the dataset [here](https://www.kaggle.com/nodoubttome/skin-cancer9-classesisic)
