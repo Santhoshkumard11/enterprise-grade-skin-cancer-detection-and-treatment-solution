@@ -14,7 +14,7 @@ screening and the result is send to a dermatologist for closure. Once this is do
 
 
 ## Architecture Diagram
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/blob/main/images/architecture_diagram.jpg" height="380" width="1300" alt="architecture diagram">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/architecture_diagram.jpg" height="380" width="1300" alt="architecture diagram">
 
 ## Services Used
 - __Power Apps__ as UI
@@ -39,7 +39,7 @@ screening and the result is send to a dermatologist for closure. Once this is do
 1. #### Response from Adaptive Card
     - Once the dermatologist confirms the appointment and submits the card. The details is recorded and the Patient item list and slot item list are updated with the details, finally a mail is triggered to the patient with the appointment date and time 
 ## Power Apps Images
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/blob/main/images/dashboard.jpg" height="580" alt="dashboard of Power Apps">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/Dashboard.jpg" height="580" alt="dashboard of Power Apps">
 
 ## About the ML model used
 - Model trained with images from the dataset (here)[https://www.kaggle.com/nodoubttome/skin-cancer9-classesisic]
