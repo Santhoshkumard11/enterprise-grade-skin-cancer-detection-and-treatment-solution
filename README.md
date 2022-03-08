@@ -14,7 +14,7 @@ screening and the result is send to a dermatologist for closure. Once this is do
 
 
 ## Architecture Diagram
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/architecture_diagram.jpg" alt="architecture diagram">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/architecture_diagram_full.jpg" alt="architecture diagram">
 
 ## Services Used
 - __Power Apps__ as UI
@@ -59,7 +59,7 @@ screening and the result is send to a dermatologist for closure. Once this is do
 <img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/patient_profile.jpg" alt="patient profile">
 
 ## Power Apps Versions
-![Power Apps Versions](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/power-app-version-view.gif)
+![Power Apps Versions](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/power-apps-version-view.gif)
 
 ## About the ML model used
 - Model trained with images from the dataset [here](https://www.kaggle.com/nodoubttome/skin-cancer9-classesisic)
