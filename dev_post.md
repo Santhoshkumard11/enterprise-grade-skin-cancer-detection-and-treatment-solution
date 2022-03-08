@@ -1,11 +1,11 @@
 ## Brief Story to start with 🔮
-Let's go back in time and think about how sophisticated we are now. In earlier 1990s, we didn't have enough computing power or as many powerful computers as we do now to do complex operation and not train a machine learning model for sure. You won't be able to sit along and code all day staring at a CTR monitor in-front of you. Humans have always been these evolving creatures; How to use things, discover things, thing differently of the world. With that said, computer science and technology has been in the boom since we started experimenting and pushing them to their limits. Now here we are in 2022, battling out which is the best editor (`Vim Vs Emacs`) and with cloud empowering people to make digital transformations on all or most physical assets.
+Let's go back in time and think about how sophisticated we are now. In the earlier 1990s, we didn't have enough computing power or as many powerful computers as we do now to do complex operations and not train a machine learning model for sure. You won't be able to sit along and code all day staring at a CTR monitor in front of you. Humans have always been these evolving creatures; How to use things, discover things, think differently of the world. With that said, computer science and technology have been in the boom since we started experimenting and pushing them to their limits. Now here we are in 2022, battling out which is the best editor (`Vim Vs Emacs`) and with cloud empowering people to make digital transformations on all or most physical assets.
 
-## 👨‍💻For people who say, enough of talk - [YouTube Demo Link]()
+## 👨‍💻For people who say, enough of talk - [YouTube Demo Link](https://www.youtube.com/watch?v=9fqYRIaMOa0&ab_channel=LateNightCodewithSanthosh)
  
-## 🕵️‍♂️For people who say, just show what you've build - [GitHub Repo Link](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution)
+## 🕵️‍♂️For people who say, just show what you've built - [GitHub Repo Link](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution)
 
-Here is a small example of how the technology can be utilized in the right-way to build something for the humanity to sustain better in this changing world. When you're talking about cancer, regardless of types, detecting it as early as possible increases the chance of survival. 
+Here is a small example of how technology can be utilized in the right way to build something for humanity to sustain better in this changing world. When you're talking about cancer, regardless of type, detecting it as early as possible increases the chance of survival. 
 
 ## Medical Background 👩‍⚕️👨‍⚕️
 
@@ -17,7 +17,7 @@ Here is a small example of how the technology can be utilized in the right-way t
 
 Seeing this and I thought why don't we solve something this bad, **leveraging Power Platform** for its simplicity and rapid development ability.
 
-This solution is completely built by leveraging Low code/No code platforms such as Power Apps and Power Automate, as well as Azure serverless offerings. The flow goes something like this, employee/nurse in the hospital can add new patient into the system and upload their skin sample image which then goes through the ML model for initial screening and the result is send to a dermatologist for closure. Once this is done then an appointment is scheduled automatically if cancer is detected by the model and dermatologist confirms the same. The desired treatment plan is created in the backend and updated in the SharePoint List which can be viewed by the patients through Power Apps. The dermatologist can view the slots booked and the patient details.
+This solution is completely built by leveraging Low code/No code platforms such as Power Apps and Power Automate, as well as Azure serverless offerings. The flow goes something like this, employees/nurses in the hospital can add new patients into the system and upload their skin sample image which then goes through the ML model for initial screening, and the result is sent to a dermatologist for closure. Once this is done then an appointment is scheduled automatically if cancer is detected by the model and the dermatologist confirms the same. The desired treatment plan is created in the backend and updated in the SharePoint List which can be viewed by the patients through Power Apps. The dermatologist can view the slots booked and the patient details.
 
 I've used Python in Azure Function, feel free to replicate the same in your favorite language. 🐱‍👤
 
@@ -26,10 +26,10 @@ I've used Python in Azure Function, feel free to replicate the same in your favo
 1. __Power Apps__ as UI
 2. __Power Automate__ for flow triggers
 3. __SharePoint__ as database
-4. Azure Functions for exposing model endpoint and upload image to blob storage
-5. Logic Apps for receiving response from Adaptive Card
+4. Azure Functions for exposing model endpoint and uploading an image to blob storage
+5. Logic Apps for receiving the response from Adaptive Card
 6. Azure Blob Storage for storing predicted images
-7. Azure DevOps keeping track of False positive images
+7. Azure DevOps keeping track of False-positive images
 8. Adaptive Cards (Outlook Actionable Message)
 
 ## Architecture Diagram
@@ -40,23 +40,26 @@ I've used Python in Azure Function, feel free to replicate the same in your favo
 
 
 ## Azure Resource Group
-Peek look of how the Azure Resource Group.
+Peek look at how the Azure Resource Group.
 
 ![Azure Resource Group](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/resource_group.jpg)
 
 Enough of talk! Let’s see things in action, shall we?🤹‍♀️
 
 ## Patient Details Screen
-With features like search a patient based on Name, edit patient details and add new patients
+With features like searching a patient based on Name, editing patient details, and adding new patients
 ![Patient Details](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/patient_details.jpg)
 
 ## Detect cancer type with ML model
-As you see below we select the patient name from the dropdown, choose the image and hit upload, a cool loader shows up to let you know that the image is send to Azure Function, this triggers `DetectSampleImage` Power Automate flow. This **returns the detected cancer type**, **uploads the image to blob storage** for future reference and updated the patient list item in SharePoint.
+As you see below we select the patient name from the dropdown, choose the image, and hit upload, a cool loader shows up to let you know that the image is sent to Azure Function, this triggers `DetectSampleImage` Power Automate flow. This **returns the detected cancer type**, **uploads the image to blob storage** for future reference, and updates the patient list item in SharePoint.
+
+> The biggest part in doing this simple thing is how to send the image bytes to the flow and reconstruct the same in Azure Function
+
 ![Prediction Screen](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/detect_loading.jpg)
 
-## Send adaptive card to dermatologist
+## Send an adaptive card to the dermatologist
 
-Once this is done, you can choose the dermatologist from the dropdown and send this report via Adaptive Card Actionable item, his triggers the `SendEmailToDoctor` power automate flow and the step level is set to 1 now. 
+Once this is done, you can choose the dermatologist from the dropdown and send this report via Adaptive Card Actionable item, this triggers the `SendEmailToDoctor` power automate flow and the step level is set to 1 now. 
 ![Detection Screen](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/detection_screen.jpg)
 
 ## Adaptive Card reply
@@ -65,19 +68,19 @@ Now the dermatologist receives the card as shown below. He/she can choose to rep
 
 
 ## Logic App receiver
-This gets the dermatologist prediction type, appointment date and time and updates it to the patient details list and confirms the slot of the appointment. In the end this also sends a card response to the dermatologist notifying that the details are saved successfully.
+This gets the dermatologist's prediction type, appointment date, and time and updates it to the patient details list, and confirms the slot of the appointment. In the end, this also sends a card response to the dermatologist notifying that the details are saved successfully.
 ![Logic App response flow](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/receive_flow.jpg)
 
 
 ## Patient Receives appointment confirmation
 
-After this the patient receives the appointment date and time and the link to the Power Apps where he/she can track their progress. The step level is set to 2 now.
+After this, the patient receives the appointment date and time and the link to the Power Apps where he/she can track their progress. The step level is set to 2 now.
 ![Patient Receives the slot](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/patient_receive.jpg)
 
 
 ## Track details in Power Apps
 
-Once the slot it booked the patient can track their progress with the timeline shown below their profile.
+Once the slot is booked the patient can track their progress with the timeline shown below their profile.
 ![Patient Details](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/patient_profile.jpg)
 
 
@@ -107,20 +110,20 @@ After the flow is complete the `slot requested` and `slots booked` will be updat
 ![VS Code editor](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/code.jpg)
 
 ## Future work/score:
-- Auto select the dermatologist based on the availability and critical care needed for the patient
-- Send an Calendar invite instead of the plain text email when the dermatologist confirm the appointment
-- Setup a retraining mechanism which trains the model with the latest images per month in Azure Machine Learning (designer)
+- Auto-select the dermatologist based on the availability and critical care needed for the patient
+- Send a Calendar invite instead of the plain text email when the dermatologist confirm the appointment
+- Setup a retraining mechanism that trains the model with the latest images per month in Azure Machine Learning (designer)
 - Live Chat assistance through Virtual Agents
-- Setup a treatment plan for each patient who are diagnosed
+- Set up a treatment plan for each patient who is diagnosed
 
 Feel free to reach out if you need any further clarification on the implementation. I would be more than happy to answer those. 🤝
 
-Looking forward to hear from you and improvements via Comment or PRs are most welcomed.🙏
+Looking forward to hearing from you and improvements via Comments or PRs are most welcomed.🙏
 
-Congratulations!! 🎉you have successfully completed reading this huge blog.🤩
+Congratulations!! 🎉you have completed reading this huge blog.🤩
 Thanks a lot for reading out till the end.👓
 
-Let’s connect if you want to collaborate on the further work or a quick catch up.🤝
+Let’s connect if you want to collaborate on further work or a quick catch up.🤝
 ## References
 #### [Connect on LinkedIn](https://linkedin.com/in/santhosh-kumard)
 
@@ -131,5 +134,3 @@ Let’s connect if you want to collaborate on the further work or a quick catch 
 {% embed https://dev.to/sandy_codes_py %}
 
 {% embed https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution %}
-
-

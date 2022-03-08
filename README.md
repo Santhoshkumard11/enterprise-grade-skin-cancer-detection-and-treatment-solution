@@ -4,17 +4,33 @@ This solution is completely built by leveraging __Low code/No code platforms__ s
 The flow goes something like this, employee/nurse in the hospital can add new patient into the system and upload their skin sample image into the system which then goes through the ML model for initial
 screening and the result is send to a dermatologist for closure. Once this is done then an appointment is scheduled automatically if cancer is detected and the treatment plan is created in the backend and updated in the SharePoint List. The dermatologist can view the slots booked and the patient details.
 
+## Dev Blog Post 📑
+### [Click here to read the dev.to blog post](https://dev.to/sandy_codes_py/enterprise-grade-skin-cancer-detection-and-treatment-solution-using-power-platform-microsoft-azure-cloud-963)
+
 ## YouTube Demo Video 📺📺
-### [Click here to watch the Power Apps walk-through and working demo.](https://www.youtube.com/watch?v=DFKe5eMj2_c&ab_channel=LateNightCodewithSanthosh)
+### [Click here to watch the Power Apps walk-through and working demo.](https://www.youtube.com/watch?v=9fqYRIaMOa0&ab_channel=LateNightCodewithSanthosh)
 
 
-<a href="https://youtu.be/DFKe5eMj2_c">
-  <img src="https://img.youtube.com/vi/DFKe5eMj2_c/hqdefault.jpg" alt="video">
+<a href="https://youtu.be/9fqYRIaMOa0">
+  <img src="https://img.youtube.com/vi/9fqYRIaMOa0/hqdefault.jpg" alt="video">
 </a>
 
 
+### How to Upload the Power Apps to your environment
+
+1. Download the Power App ZIP file from Power Platform Services folder in the repo
+
+2. Go to your Power Apps portal, click on import canvas app
+
+3. Upload the zip file and wait for it to upload
+
+4. Replace the connectors of SharePoint and Outlook to make it working.
+
+You can also upload the Power Automate flows separately if you want.
+
 ## Architecture Diagram
 <img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/architecture_diagram_full.png" alt="architecture diagram">
+
 
 ![Architecture Diagram Flow](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/architecture_diagram_flow.png)
 
