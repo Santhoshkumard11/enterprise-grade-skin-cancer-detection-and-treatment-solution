@@ -14,7 +14,9 @@ screening and the result is send to a dermatologist for closure. Once this is do
 
 
 ## Architecture Diagram
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/architecture_diagram_full.jpg" alt="architecture diagram">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/architecture_diagram_full.png" alt="architecture diagram">
+
+![Architecture Diagram Flow](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/architecture_diagram_flow.png)
 
 ## Services Used
 - __Power Apps__ as UI
