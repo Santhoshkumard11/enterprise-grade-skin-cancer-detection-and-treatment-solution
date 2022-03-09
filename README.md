@@ -29,10 +29,10 @@ screening and the result is send to a dermatologist for closure. Once this is do
 You can also upload the Power Automate flows separately if you want.
 
 ## Architecture Diagram
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/architecture_diagram_full.png" alt="architecture diagram">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/blob/1f3ac667da2178e4f9b790661a84cbf99fb02bb5/images/architecture_diagram_full.png" alt="architecture diagram">
 
 
-![Architecture Diagram Flow](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/architecture_diagram_flow.png)
+![Architecture Diagram Flow](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/blob/1f3ac667da2178e4f9b790661a84cbf99fb02bb5/images/architecture_diagram_flow.png)
 
 ## Services Used
 - __Power Apps__ as UI
@@ -59,25 +59,25 @@ You can also upload the Power Automate flows separately if you want.
 
 
 ### Azure Resource Group
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/resource_group.jpg" alt="Azure resource group">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/blob/1f3ac667da2178e4f9b790661a84cbf99fb02bb5/images/resource_group.jpg" alt="Azure resource group">
 
 ## Power Apps Images
 ### Dashboard - Light/Dark themes
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/dashboard_light.jpg" alt="dashboard of Power Apps light">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/blob/1f3ac667da2178e4f9b790661a84cbf99fb02bb5/images/dashboard_light.jpg" alt="dashboard of Power Apps light">
 
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/dashboard_dark.jpg" alt="dashboard of Power Apps dark">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/blob/1f3ac667da2178e4f9b790661a84cbf99fb02bb5/images/dashboard_dark.jpg" alt="dashboard of Power Apps dark">
 
 ### Patient Details List - with search enabled
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/patient_details.jpg" alt="Patient details list">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/blob/1f3ac667da2178e4f9b790661a84cbf99fb02bb5/images/patient_details.jpg" alt="Patient details list">
 
 ### Doctor Home
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/doctor_profile.jpg" alt="doctor home">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/blob/1f3ac667da2178e4f9b790661a84cbf99fb02bb5/images/doctor_profile.jpg" alt="doctor home">
 
 ### Patient Profile
-<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/patient_profile.jpg" alt="patient profile">
+<img src="https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/blob/1f3ac667da2178e4f9b790661a84cbf99fb02bb5/images/patient_profile.jpg" alt="patient profile">
 
 ## Power Apps Versions
-![Power Apps Versions](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/raw/ml-model-dev/images/power-apps-version-view.gif)
+![Power Apps Versions](https://github.com/Santhoshkumard11/enterprise-grade-skin-cancer-detection-and-treatment-solution/blob/1f3ac667da2178e4f9b790661a84cbf99fb02bb5/images/power-apps-version-view.gif)
 
 ## About the ML model used
 - Model trained with images from the dataset [here](https://www.kaggle.com/nodoubttome/skin-cancer9-classesisic)
